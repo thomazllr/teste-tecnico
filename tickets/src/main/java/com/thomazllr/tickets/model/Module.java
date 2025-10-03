@@ -19,4 +19,7 @@ public class Module {
 
     private String name;
 
+    public Module(Long id) {
+        this.id = id;
+    }
 }

@@ -23,7 +23,7 @@ public class TicketResponse {
                 .clientName(ticket.getClient().getName())
                 .moduleName(ticket.getModule().getName())
                 .openingDate(ticket.getOpeningDate().toString())
-                .closingDate(ticket.getClosingDate().toString())
+                .closingDate(ticket.getClosingDate() != null ? ticket.getClosingDate().toString() : null)
                 .build();
     }
 }

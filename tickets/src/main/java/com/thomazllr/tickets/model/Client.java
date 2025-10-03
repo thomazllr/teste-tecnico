@@ -19,4 +19,7 @@ public class Client {
 
     private String name;
 
+    public Client(Long id) {
+        this.id = id;
+    }
 }

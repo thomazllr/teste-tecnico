@@ -8,7 +8,9 @@ import com.thomazllr.tickets.model.Ticket;
 import com.thomazllr.tickets.repository.TicketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,12 +20,25 @@ public class TicketService {
 
     private final TicketRepository repository;
 
+    private final ClientService clientService;
+    private final ModuleService moduleService;
+
+    @Transactional
     public Ticket save(Ticket ticket) {
+        var client = clientService.findById(ticket.getClient().getId());
+        var module = moduleService.findById(ticket.getModule().getId());
+        ticket.setClient(client);
+        ticket.setModule(module);
+        ticket.setOpeningDate(LocalDate.now());
         return repository.save(ticket);
     }
 
-    public TicketDashboardResponse getDashboardStats() {
-        var tickets = repository.findAll();
+    public TicketDashboardResponse getDashboardStats(Integer year, Integer month) {
+
+        LocalDate startDate = LocalDate.of(year, month, 1);
+        LocalDate endDate = LocalDate.of(year, month, startDate.lengthOfMonth());
+
+        var tickets = repository.findAllByMonthAndYear(startDate, endDate);
 
         var ticketsResponse = toTicketResponse(tickets);
         var clientsResponse = summarizeTicketsByClient(tickets);
