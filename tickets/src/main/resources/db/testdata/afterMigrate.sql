@@ -79,3 +79,44 @@ VALUES (TRIM('Em pé sem cair deitado '), 1, '2021-03-21', '2021-03-24', 1);
 INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
 VALUES (TRIM('Mussum Ipsum cacilds vidis litro '), 1, '2021-03-21', '2021-03-24', 1);
 
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Sapien in monti palavris'), 1, '2021-03-21', '2021-03-24', 2);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Aenean aliquam molestie'), 1, '2021-03-24', '2021-03-25', 2);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Interessantiss quisso pudia'), 1, '2021-03-24', '2021-03-25', 2);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('In elementis mé pra quem'), 1, '2021-03-24', '2021-03-25', 2);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Em pé sem cair deitado'), 1, '2021-03-24', '2021-03-25', 2);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Mussum Ipsum cacilds vidis litro'), 1, '2021-03-24', '2021-03-25', 3);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Praesent malesuada urna nisi'), 1, '2021-03-24', '2021-03-25', 3);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Sapien in monti palavris'), 1, '2021-03-24', '2021-03-25', 3);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Aenean aliquam molestie'), 1, '2021-03-24', '2021-03-25', 3);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Interessantiss quisso pudia'), 1, '2021-03-30', '2021-03-31', 4);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('In elementis mé pra quem'), 2, '2021-03-01', '2021-03-03', 4);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Em pé sem cair deitado'), 2, '2021-03-01', '2021-03-03', 4);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Mussum Ipsum cacilds vidis litro'), 2, '2021-03-01', '2021-03-03', 4);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Praesent malesuada urna nisi'), 2, '2021-03-01', '2021-03-03', 1);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Sapien in monti palavris'), 2, '2021-03-01', '2021-03-03', 1);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Aenean aliquam molestie'), 2, '2021-03-01', '2021-03-03', 1);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Interessantiss quisso pudia'), 2, '2021-03-01', '2021-03-03', 1);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('In elementis mé pra quem'), 2, '2021-03-01', '2021-03-03', 1);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Em pé sem cair deitado'), 2, '2021-03-01', '2021-03-03', 2);
+INSERT INTO ticket (title, client_id, opening_date, closing_date, module_id)
+VALUES (TRIM('Mussum Ipsum cacilds vidis litro'), 2, '2021-03-01', '2021-03-03', 2);
+-- ... e assim por diante para os demais INSERTS, trocando FK_ID_CLIENT -> client_id e FK_ID_MODULE -> module_id

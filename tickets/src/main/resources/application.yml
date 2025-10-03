@@ -9,3 +9,5 @@ spring:
   flyway:
     clean-disabled: false
     locations: classpath:db/migration,classpath:db/testdata
+  jpa:
+    show-sql: true

@@ -28,4 +28,5 @@ public class Ticket {
     private LocalDate openingDate;
 
     private LocalDate closingDate;
+
 }
