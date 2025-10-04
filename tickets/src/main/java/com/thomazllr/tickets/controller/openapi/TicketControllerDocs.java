@@ -52,8 +52,8 @@ public interface TicketControllerDocs {
                     ),
                     @ApiResponse(
                             responseCode = "400",
-                            description = "Invalid parameters or input data",
-                            content = @Content(schema = @Schema(ref = "#/components/schemas/Problem"))
+                            description = "Invalid parameters",
+                            content = @Content(schema = @Schema(implementation = Problem.class))
                     )
             }
     )

@@ -8,7 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import java.time.DateTimeException;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.util.List;
@@ -45,6 +47,20 @@ public class GlobalExceptionHandler {
 
     }
 
+    @ExceptionHandler(DateTimeException.class)
+    public ResponseEntity<Problem> handleEntityNotFoundException(DateTimeException exception) {
+        var status = HttpStatus.BAD_REQUEST;
+        var problemType = ProblemType.BUSINESS_ERROR;
+        String detail = exception.getMessage();
+
+        var problemBuilder = createProblemBuilder(status, problemType, detail)
+                .userMessage("Invalid month of the year. Enter a valid month and try again.")
+                .build();
+
+        return ResponseEntity.status(status).body(problemBuilder);
+
+    }
+
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Problem> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
@@ -69,6 +85,23 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(status).body(problem);
 
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Problem> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException exception) {
+        var problemType = ProblemType.INVALID_PARAMETER;
+        var status = HttpStatus.BAD_REQUEST;
+        String detail = String.format("The URL parameter '%s' was assigned the value '%s', "
+                                      + "which is of an invalid type. Correct and enter a value compatible with type %s.",
+                exception.getName(), exception.getValue(), exception.getRequiredType().getSimpleName());
+
+
+        var problem = createProblemBuilder(status, problemType, detail)
+                .userMessage(detail)
+                .build();
+
+
+        return ResponseEntity.status(status).body(problem);
     }
 
 
