@@ -12,11 +12,10 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     @Query("""
                 SELECT t
-                FROM Ticket t 
-                JOIN FETCH t.client 
-                JOIN FETCH t.module 
-                WHERE (t.openingDate >= :startDate AND t.openingDate < :endDate)
-                   OR (t.closingDate >= :startDate AND t.closingDate < :endDate)
+                FROM Ticket t
+                JOIN FETCH t.client
+                JOIN FETCH t.module
+                WHERE t.openingDate >= :startDate AND t.openingDate < :endDate
             """)
     List<Ticket> findAllByMonthAndYear(@Param("startDate") LocalDate startDate,
                                        @Param("endDate") LocalDate endDate);

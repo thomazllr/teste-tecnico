@@ -3,6 +3,7 @@ package com.thomazllr.tickets.controller;
 import com.thomazllr.tickets.controller.dto.TicketRequest;
 import com.thomazllr.tickets.controller.dto.response.TicketDashboardResponse;
 import com.thomazllr.tickets.controller.dto.response.TicketResponse;
+import com.thomazllr.tickets.controller.openapi.TicketControllerDocs;
 import com.thomazllr.tickets.service.TicketService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 @RestController
 @RequestMapping("/v1/tickets")
 @RequiredArgsConstructor
-public class TicketController {
+public class TicketController implements TicketControllerDocs {
 
     private final TicketService service;
 
