@@ -3,6 +3,8 @@ package com.thomazllr.tickets.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Getter
 @Setter
@@ -19,5 +21,17 @@ public class Module {
 
     public Module(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Module module = (Module) o;
+        return Objects.equals(id, module.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
