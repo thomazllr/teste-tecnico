@@ -37,13 +37,13 @@ class TicketServiceTest {
     @InjectMocks
     private TicketService ticketService;
 
-    @InjectMocks
     private TicketUtils ticketUtils;
 
     private List<Ticket> ticketsList;
 
     @BeforeEach
     void setup() {
+        ticketUtils = new TicketUtils();
         ticketsList = ticketUtils.createTickets();
     }
 
