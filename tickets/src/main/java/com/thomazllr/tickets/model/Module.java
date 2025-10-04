@@ -3,8 +3,6 @@ package com.thomazllr.tickets.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter

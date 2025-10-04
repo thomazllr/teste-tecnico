@@ -12,7 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 @Service
 @RequiredArgsConstructor
@@ -25,8 +26,8 @@ public class TicketService {
 
     @Transactional
     public Ticket save(Ticket ticket) {
-        var client = clientService.findById(ticket.getClient().getId());
-        var module = moduleService.findById(ticket.getModule().getId());
+        var client = clientService.findByIdOrThrowBadRequest(ticket.getClient().getId());
+        var module = moduleService.findByIdOrThrowBadRequest(ticket.getModule().getId());
         ticket.setClient(client);
         ticket.setModule(module);
         ticket.setOpeningDate(LocalDate.now());
@@ -59,7 +60,7 @@ public class TicketService {
 
     private List<ClientDashboardResponse> summarizeTicketsByClient(List<Ticket> tickets) {
         return tickets.stream()
-                .collect(Collectors.groupingBy(Ticket::getClient, Collectors.counting()))
+                .collect(groupingBy(Ticket::getClient, counting()))
                 .entrySet().stream()
                 .map(entry -> ClientDashboardResponse.from(entry.getKey(), entry.getValue()))
                 .toList();
@@ -67,7 +68,7 @@ public class TicketService {
 
     private List<ModuleDashboardResponse> summarizeTicketsByModule(List<Ticket> tickets) {
         return tickets.stream()
-                .collect(Collectors.groupingBy(Ticket::getModule, Collectors.counting()))
+                .collect(groupingBy(Ticket::getModule, counting()))
                 .entrySet().stream()
                 .map(entry -> ModuleDashboardResponse.from(entry.getKey(), entry.getValue()))
                 .toList();
