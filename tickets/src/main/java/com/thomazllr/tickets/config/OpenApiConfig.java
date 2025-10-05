@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(info = @Info(title = "Tickets API", version = "1.0",
-        contact = @Contact(name = "Guilherme Thomaz", email = "thomazllrdev@gmail.com")))
+        contact = @Contact(name = "Guilherme Thomaz", email = "thomazllrdev@gmail.com", url = "https://github.com/thomazllr")))
 public class OpenApiConfig {
 }

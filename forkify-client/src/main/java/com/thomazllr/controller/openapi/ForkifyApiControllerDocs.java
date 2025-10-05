@@ -11,7 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Tag(name = "Forkify API", description = "Endpoints para buscar receitas usando a API Forkify")
+@Tag(name = "Forkify API", description = "Endpoints to search for recipes using the Forkify API")
 public interface ForkifyApiControllerDocs {
 
     @GetMapping
@@ -40,6 +40,6 @@ public interface ForkifyApiControllerDocs {
             )
     })
     ResponseEntity<ForkifySearchResponse> search(
-            @Parameter(description = "Termo de busca para receitas", example = "pizza", required = true)
+            @Parameter(description = "Search term for recipes", example = "pizza", required = true)
             String query);
 }
