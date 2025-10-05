@@ -1,3 +1,11 @@
+DELETE FROM ticket;
+DELETE FROM module;
+DELETE FROM client;
+
+ALTER TABLE client ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE module ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE ticket ALTER COLUMN id RESTART WITH 1;
+
 INSERT INTO client (name) VALUES
     ('Thomaz Ltda'),
     ('Tech Soluções'),
@@ -8,7 +16,6 @@ INSERT INTO module (name) VALUES
     ('TI'),
     ('Suporte');
 
--- Inserir tickets sem a coluna 'description'
 INSERT INTO ticket (title, client_id, module_id, opening_date, closing_date)
 VALUES
     ('Problema ao gerar PDF', 1, 1, DATE '2025-10-01', DATE '2025-10-03'),
@@ -21,5 +28,3 @@ VALUES
     ('Falha ao carregar imagens', 3, 2, DATE '2025-10-09', DATE '2025-10-12'),
     ('Erro na exportação de dados', 3, 3, DATE '2025-10-10', DATE '2025-10-13'),
     ('Atualização não é concluída', 1, 1, DATE '2025-10-11', DATE '2025-10-14');
-
-
