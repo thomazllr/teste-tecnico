@@ -22,7 +22,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Sql(value = "/sql/clean-tickets.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 class TicketControllerIT extends IntegrationTestConfig {
