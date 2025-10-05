@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: forkify-client
+forkify-api:
+  url: https://forkify-api.herokuapp.com/api
