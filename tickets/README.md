@@ -5,6 +5,9 @@
 Esse desafio consistia na criação de tabelas para uma API de chamados, com endpoint que irá fazer uma consulta no banco
 de dados apenas uma vez e a partir
 dos dados obtidos fazer as devidas manipulações.
+
+Link do Swagger: https://tickets-api-2yfp.onrender.com/
+
 ---
 
 ## Objetivos 📋:

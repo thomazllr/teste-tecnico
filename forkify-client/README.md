@@ -4,6 +4,8 @@
 
 Esse desafio consistia em consumir uma API de receitas. Passando um parâmetro de buscar e retornando o resultado para o client.
 
+Link do Swagger: https://forkfiy-client.onrender.com/
+
 ---
 
 ## Objetivos 📋:
