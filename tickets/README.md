@@ -19,7 +19,7 @@ dos dados obtidos fazer as devidas manipulações.
 
 ## Tecnologias ⚙️:
 
-- **Linguagem**: Java
+- **Linguagem**: Java 21
 - **Framework**: Spring Boot
 - **Bando de Dados**: H2
 - **Migrations**: Flyway
@@ -32,8 +32,8 @@ dos dados obtidos fazer as devidas manipulações.
 
 ## Proposta de resolução:
 
-A primeira coisa que pensei é que precisava trazer todos os dados de forma eager, já que como o relacionamento
-```@ManyToOne``` traz as entidades de forma Lazy por padrão, fazendo com que gerasse muitas consultas desnecessárias.
+A primeira coisa que pensei é que precisava trazer todos os dados de uma vez, para evitar o problema do N+1, então decidir 
+fazer essa função que realizava fetch nas tabelas de client e module e passando parâmetros de consulta apenas para o mês e o ano específico.
 
 ```java
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
@@ -302,9 +302,9 @@ Requisição:
 
 ```json
 {
-  "title": "",
-  "clientId": 2,
-  "moduleId": null
+  "title": "Title",
+  "clientId": 99,
+  "moduleId": 2
 }
 ```
 
@@ -329,8 +329,7 @@ implementação de testes unitários e testes de integração.
 
 #### Testes Unitários
 
-Como nos testes unitários eu preciso ter total controle dos dados mockados, então criei uma classe utilitária para eu
-utilizar com auxiliador:
+Como nos testes unitários eu preciso ter total controle dos dados mockados, então criei uma classe utilitária para me ajudar nos testes:
 
 ```java
 

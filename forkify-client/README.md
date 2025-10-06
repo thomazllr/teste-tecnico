@@ -1,4 +1,4 @@
-# Teste II - Client de API (Forkfiy API) ⚠️
+# Teste II - Client de API (Forkfiy API) ‍👨‍🍳
 
 ---
 
@@ -16,7 +16,7 @@ Esse desafio consistia em consumir uma API de receitas. Passando um parâmetro d
 
 ## Tecnologias ⚙️:
 
-- **Linguagem**: Java
+- **Linguagem**: Java 21
 - **Framework**: Spring Boot
 - **Testes**: JUnit, Mockito, REST Assured
 - **Documentação**: SwaggerUI
